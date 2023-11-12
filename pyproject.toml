@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sdj-remotetools"
-version = "0.1.1"
+version = "0.2.0"
 description = "Collection of remote management tools through SSH"
 authors = ["Steve De Jongh <dejongh.st@gmail.com>"]
 readme = "README.md"
