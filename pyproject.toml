@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "sdj-remotetools"
-version = "0.2.0"
+version = "0.2.1"
 description = "Collection of remote management tools through SSH"
 authors = ["Steve De Jongh <dejongh.st@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/sdejongh/sdj_remotetools"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 paramiko = "^3.3.1"
 
 [tool.poetry.group.dev.dependencies]
