@@ -5,7 +5,7 @@
 `sdj-remotetools` is a python collection of tools working through SSH.
 
 ## Tools
-All tools handles SSH connection using Paramiko.
+All tools handle SSH connection using Paramiko.
 
 ### rcat
 Works like 'cat' command but for remote files through SSH
