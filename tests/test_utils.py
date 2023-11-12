@@ -1,3 +1,4 @@
+import pytest
 from sdj_remotetools.utils import ssh_url_type
 
 

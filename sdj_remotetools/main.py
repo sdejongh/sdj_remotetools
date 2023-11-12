@@ -1,5 +1,4 @@
 import argparse
-from getpass import getpass
 from sdj_remotetools.remote_cat import get_remote_file_content
 from sdj_remotetools.utils import ssh_url_type
 
