@@ -3,17 +3,27 @@ import sys
 from getpass import getpass
 
 
-def get_remote_file_content(remote_host: str, username: str, password: bool or None, path_to_file: str, encoding: str = 'utf8'):
+def get_remote_file_content(remote_host: str, username: str, password: bool, path_to_file: str,
+                            encoding: str = 'utf8') -> str:
+    """Gets and returns the content of a remote file through SSH
+
+    Arguments:
+        remote_host (str):  address or hostname of the remote host
+        username (str):     username used to connect to the remote host
+        password (bool):    should password authentication be used or not, default: False
+        path_to_file (str): path to the file on the remote host
+        encoding (str):     encoding to use to read the file content, default: 'utf-8'
+
+    Returns:
+        Content of the remote file as a string.
+    """
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
     try:
         if password:
-            try:
-                ssh.connect(hostname=remote_host, username=username)
-            except paramiko.SSHException as e:
-                user_password = getpass(f'({remote_host}) Password: ')
-                ssh.connect(hostname=remote_host, username=username, password=user_password)
+            user_password = getpass(f'({remote_host}) Password: ')
+            ssh.connect(hostname=remote_host, username=username, password=user_password)
         else:
             ssh.connect(hostname=remote_host, username=username)
 
@@ -22,9 +32,11 @@ def get_remote_file_content(remote_host: str, username: str, password: bool or N
         ssh.close()
         return content
 
-    except paramiko.SSHException as e:
-        print(e)
-        sys.exit(1)
-    except FileNotFoundError as e:
-        print(f'{e}: {username}@{remote_host}:{path_to_file}')
-        sys.exit(1)
+    except (
+            paramiko.SSHException,
+            paramiko.AuthenticationException,
+            paramiko.SFTPError,
+            FileNotFoundError,
+            PermissionError,
+    ):
+        raise
