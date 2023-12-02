@@ -42,8 +42,6 @@ PARSER_CONFIG = {
             'default': False,
             'help': 'Enable console syntax highlighting',
         },
-
-
     ]
 }
 

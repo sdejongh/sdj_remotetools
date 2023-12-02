@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## v0.5.0
+
+### New features
+- Added `rexec` which allows to execute commands on a list of remote hosts
+```
+usage: rexec [-h] [-u USERNAME] [-p PASSWORD] [-o OUTPUT] [-s] remote_hosts command
+
+Executes command on a list of remote hosts and output result.
+
+positional arguments:
+  remote_hosts          A coma separated list of hosts. Ex: root@127.0.0.1,joe@example.org
+  command               The command to execute on remote hosts
+
+options:
+  -h, --help            show this help message and exit
+  -u USERNAME, --username USERNAME
+                        Username for ssh authentication. Must be the same for all hosts
+  -p PASSWORD, --password PASSWORD
+                        Password for ssh authentication. Must be the same for all hosts
+  -o OUTPUT, --output OUTPUT
+                        Write output to this file. It not set output will print on stdout
+  -s, --syntax_highlight
+                        Enable console syntax highlighting
+```
+
+### Breaking changes
+- None
+
+### Improvements
+- None
+
+### Bugfixes
+- None
+
+
 ## v0.4.0
 
 ### New features
