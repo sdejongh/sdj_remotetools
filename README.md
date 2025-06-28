@@ -32,7 +32,7 @@ Works like 'ls' command but for remote path through SSH (with fewer options).
 ```
 usage: rlist [-h] [-a] [-l] [-p] ssh_url
 
-Works almost liks 'ls' but through SSH
+Works almost like 'ls' but through SSH
 
 positional arguments:
   ssh_url         SSH path to a remote file or directory, space separate, ie: joe@remote.host:/remote/path
@@ -52,7 +52,7 @@ usage: rexec [-h] [-u USERNAME] [-p PASSWORD] [-o OUTPUT] [-s] remote_hosts comm
 Executes command on a list of remote hosts and output result.
 
 positional arguments:
-  remote_hosts          A coma separated list of hosts. Ex: root@127.0.0.1,joe@example.org
+  remote_hosts          A comma-separated list of hosts. Ex: root@127.0.0.1,joe@example.org
   command               The command to execute on remote hosts
 
 options:
