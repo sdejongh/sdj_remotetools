@@ -8,8 +8,9 @@ def get_parser(parser_configuration: dict) -> argparse.ArgumentParser:
     """Builds and returns a ArgumentParser based on the given configuration"""
     parser = argparse.ArgumentParser(**parser_configuration['header'])
     for arg in parser_configuration['args']:
-        flags = arg.pop('name_or_flags')
-        parser.add_argument(*flags, **arg)
+        arg_cfg = arg.copy()
+        flags = arg_cfg.pop('name_or_flags')
+        parser.add_argument(*flags, **arg_cfg)
     return parser
 
 
