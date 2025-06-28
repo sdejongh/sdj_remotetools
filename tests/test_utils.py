@@ -1,5 +1,5 @@
 import pytest
-from sdj_remotetools.utils import ssh_url_type
+from sdj_remotetools.utils import ssh_url_type, ArgparseArgumentError
 
 
 def test_ssh_url_type():
@@ -11,3 +11,8 @@ def test_ssh_url_type():
         }
 
     assert ssh_url_type(url) == result
+
+
+def test_ssh_url_type_invalid():
+    with pytest.raises(ArgparseArgumentError):
+        ssh_url_type('invalid')
