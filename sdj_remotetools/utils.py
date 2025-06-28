@@ -24,7 +24,7 @@ def get_std_consoles(highlight: bool = False) -> tuple[Console, Console]:
         A tuple of rich Console
 
         Example:
-            stdout, stderr = get_sdt_consoles(highlight=True)
+            stdout, stderr = get_std_consoles(highlight=True)
     """
     return Console(highlight=highlight), Console(stderr=True, highlight=False)
 
